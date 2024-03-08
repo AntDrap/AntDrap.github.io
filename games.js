@@ -15,6 +15,7 @@ class game
     }
 }
 
+// Hardcoded for demonstration purposes
 const games = 
 [
     new game

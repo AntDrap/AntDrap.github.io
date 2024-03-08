@@ -4,9 +4,9 @@
     --SecondaryColor: #b33636;
     --tertiaryColor: #C7B7A3;
     --textColor: #E8D8C4;
-    --subTextColor: #C7B7A3;
 
     color: var(--textColor);
+
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -27,11 +27,6 @@ body
 
     padding-top: 120px;
     width: 100%;
-}
-
-p
-{
-    font-size: medium;
 }
 
 input, textarea
@@ -68,7 +63,7 @@ td.GameHolder
 
 td.GameHolder > p
 {
-    color: var(--subTextColor);
+    color: var(--tertiaryColor);
 }
 
 .GameVideoContainer 
