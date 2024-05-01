@@ -55,7 +55,7 @@
     async function PageStart()
     {
         const urlParams = new URLSearchParams(window.location.search);
-        const game_ID = urlParams.get('id')
+        const game_ID = urlParams.get('id');
 
         if(game_ID === null)
         {
@@ -69,7 +69,7 @@
             mode: 'no-cors',
         } 
 
-        var results = await fetch('http://localhost:8080/getGame/' + game_ID, requestOptions);
+        var results = await fetch('http://localhost:8080/read/' + game_ID, requestOptions);
         var games = await results.json();
 
         if(games.length <= 0)

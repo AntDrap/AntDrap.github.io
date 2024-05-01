@@ -29,7 +29,7 @@ body
     width: 100%;
 }
 
-input, textarea
+form > input, textarea
 {
     color: black;
     border: 0px;
@@ -118,6 +118,13 @@ button.EditGameButton
     position: absolute;
     bottom: 20px;
     left: 20px;
+}
+
+button.DeleteGameButton
+{
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 table.NavBarTable
