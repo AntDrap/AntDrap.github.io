@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+
+  
+    <p id="dillogametext">Dillo Dillo Clicker</p>
+    <button id = "upgrade_0" onclick="buyUpgrade(0)" class="button button1">
+      
+      egg <br> dpc + 1<br> cost: <p>10</p>   </button>
+
+    <h1 id = "dillocount">     </h1>
+   
+    <div id="dilloholder">
+        
+        <img id="dilloimage" src="https://images.vexels.com/content/210166/preview/armadillo-animal-hand-drawn-4ec64e.png" onclick="dilloclick()">    
+    </div>
+
+    
+    
+
+  
+</body>
+</html>
+<style>
+
+@font-face {
+    font-family: 'derpfont'; /*a name to be used later*/
+    src: url('/fonts/Testfont-Regular.ttf'); /*URL to font*/
+}
+
+p
+{
+font-family: 'derpfont';
+}
+
+body{
+  background-image: url("image.png");
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: 'derpfont';
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #04AA6D;
+}
+
+
+
+h1{
+
+    font-size: 75px;
+    text-align: center;
+    font-family: 'derpfont';
+   
+
+
+}
+
+
+
+#dilloimage
+
+{
+height: 400px;
+
+  width: 400px;
+}
+
+#dilloholder
+
+{
+text-align: center;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+</style>
+<script>
+ var dillos = 0;
+ var dpc = 1;
+ var dps = 0
+ function changedillo(ammount){
+    dillos += ammount 
+    document.getElementById("dillocount").textContent = "dillos: "  + dillos;
+
+
+    
+
+ }
+ 
+ function dilloclick() {
+  changedillo(dpc)
+ }
+
+
+ function spindillo(spendcost){
+if(dillos >= spendcost){
+  changedillo(-spendcost)
+  return true
+
+}
+return false
+
+ }
+
+
+ var purchaseupgrades = [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+
+
+ ]
+
+
+
+ var upgrades = [
+  {
+    name: "egg", 
+    cost: 10,
+    description: "adds 1 dillo per click",
+    costinsrease: 1.1,
+    dpc: 1,
+    dps: 0
+
+  }
+
+  
+ ]
+
+ function buyUpgrade(upgradeid){
+var upgrade = upgrades[ upgradeid]
+var cost = upgrade.cost
+if(purchaseupgrades[upgradeid ] > 0 ){
+  cost *= upgrade.costinsrease * purchaseupgrades [upgradeid]
+}
+var cancontinue = spindillo(cost)
+if(cancontinue == false){
+  return 
+}
+
+dpc += upgrade.dpc
+dps += upgrade.dps
+purchaseupgrades[upgradeid]++
+
+updatebutton(upgradeid)
+
+}
+
+function updatebutton(upgradeid){
+  var upgrade = upgrades[ upgradeid]
+var button = document.getElementById("upgrade_" + upgradeid)
+console.log (button)
+var cost = upgrade.cost
+if(purchaseupgrades[upgradeid ] > 0 ){
+  cost *= upgrade.costinsrease * purchaseupgrades [upgradeid]
+}
+
+button.childNodes[2].innerText = cost
+
+}
+
+
+
+ 
+ 
+ 
+
+
+</script>
